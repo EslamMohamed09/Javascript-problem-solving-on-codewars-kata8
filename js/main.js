@@ -74,6 +74,17 @@ function isValidWalk(walk) {
   }
  }
 
-// To return to the starting point, both vertical and horizontal distances should be zero
-return vertical === 0 && horizontal === 0;
+ return vertical === 0 && horizontal === 0;  // To return to the starting point, both vertical and horizontal distances should be zero
+}
+
+
+/* problem 5 */
+/* Examples: accum("abcd") -> "A-Bb-Ccc-Dddd"
+             accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+             accum("cwAt") -> "C-Ww-Aaa-Tttt"
+*/
+function accum(s){
+    return s.split('').map(function(ele, index){
+      return ele.toUpperCase() + ele.toLowerCase().repeat(index);
+    }).join('-');
 }
