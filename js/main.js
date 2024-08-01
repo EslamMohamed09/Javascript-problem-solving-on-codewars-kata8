@@ -183,3 +183,18 @@ function expandedForm(num) {
   return expandedParts.filter(Boolean).join(' + ');
 }
 
+/* problem 10 */
+
+// Convert string to camel case
+/*
+"the-stealth-warrior" gets converted to "theStealthWarrior"
+
+"The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+
+"The_Stealth-Warrior" gets converted to "TheStealthWarrior"
+*/
+
+function toCamelCase(str) {
+  return str.replace(/[-_]+/g, ' ').replace(/\s(.)/g, (match, letter) => letter.toUpperCase()).replace(/\s+/g, '');
+}
+
