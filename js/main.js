@@ -184,7 +184,6 @@ function expandedForm(num) {
 }
 
 /* problem 10 */
-
 // Convert string to camel case
 /*
 "the-stealth-warrior" gets converted to "theStealthWarrior"
@@ -193,8 +192,25 @@ function expandedForm(num) {
 
 "The_Stealth-Warrior" gets converted to "TheStealthWarrior"
 */
-
 function toCamelCase(str) {
   return str.replace(/[-_]+/g, ' ').replace(/\s(.)/g, (match, letter) => letter.toUpperCase()).replace(/\s+/g, '');
+}
+
+/* problem 11 */
+function firstNonRepeatingLetter(s){
+  const lowerCaseStr = s.toLowerCase();
+
+  const eleArray = lowerCaseStr.split('').map((ele, index) => {
+    return {
+      ele,
+      originalEle: s[index],
+      count: lowerCaseStr.split(ele).length - 1
+    };
+  });
+
+  const result = eleArray.filter(item => item.count === 1); // Find the first character with count 1
+
+  return result.length ? result[0].originalEle : '';
+
 }
 
