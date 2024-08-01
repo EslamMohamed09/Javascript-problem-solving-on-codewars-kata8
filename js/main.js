@@ -152,6 +152,7 @@ function likes(names){
 */
 function buildTower(nFloors) {
   let tower = [];
+
   for (let i = 0; i < nFloors; i++) {
     const numSpaces = nFloors - i - 1;
     const numStars = i * 2 + 1;
@@ -160,5 +161,6 @@ function buildTower(nFloors) {
     
     tower.push(floor);
   }
+  
   return tower;
 }
