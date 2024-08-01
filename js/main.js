@@ -161,6 +161,25 @@ function buildTower(nFloors) {
     
     tower.push(floor);
   }
-  
+
   return tower;
 }
+
+/* problem 9 */
+// Write Number in Expanded Form
+/* Examples 
+  expandedForm(12); // Should return '10 + 2'
+  expandedForm(42); // Should return '40 + 2'
+  expandedForm(70304);
+*/
+function expandedForm(num) {
+  const numStr = num.toString();
+  const length = numStr.length;
+
+  const expandedParts = numStr.split('').map((ele, index) => {
+    return ele !== '0' ? ele + '0'.repeat(length - index - 1) : null;
+  });
+
+  return expandedParts.filter(Boolean).join(' + ');
+}
+
