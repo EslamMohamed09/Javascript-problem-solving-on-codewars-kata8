@@ -141,3 +141,24 @@ function likes(names){
 }
 
 /* problem 8 */
+// Build a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors. A tower block is represented with "*" character.
+/* 
+  Example:
+  [
+    "  *  ",
+    " *** ", 
+    "*****"
+  ]
+*/
+function buildTower(nFloors) {
+  let tower = [];
+  for (let i = 0; i < nFloors; i++) {
+    const numSpaces = nFloors - i - 1;
+    const numStars = i * 2 + 1;
+    
+    const floor = ' '.repeat(numSpaces) + '*'.repeat(numStars) + ' '.repeat(numSpaces);
+    
+    tower.push(floor);
+  }
+  return tower;
+}
