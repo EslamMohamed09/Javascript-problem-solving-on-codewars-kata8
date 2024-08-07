@@ -372,3 +372,29 @@ isLockNessMonster("Hello, can I borrow tree fiddy?");  // true
 isLockNessMonster("I need about 3.50.");               // true
 isLockNessMonster("Do you have three fifty?");         // true
 isLockNessMonster("Just a normal conversation.");      // false
+
+/* problem 17 */
+// Not very secure
+// Description:
+// In this example you have to validate if a user input string is alphanumeric. The given string is not nil/null/NULL/None, so you don't have to check that.
+
+// The string has the following conditions to be alphanumeric:
+
+// At least one character ("" is not valid)
+// Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
+// No whitespaces / underscore
+function isAlphanumeric(str) {
+  // Regular expression to check if the string is alphanumeric
+  const regex = /^[a-zA-Z0-9]+$/;
+
+  // Test if the string matches the regular expression and is not empty
+  return regex.test(str) && str.length > 0;
+}
+
+// Example usage:
+isAlphanumeric("abc123");    // true
+isAlphanumeric("ABC456");    // true
+isAlphanumeric("123456");    // true
+isAlphanumeric("abc 123");  // false (contains space)
+isAlphanumeric("abc_123");  // false (contains underscore)
+isAlphanumeric("");         // false (empty string)
