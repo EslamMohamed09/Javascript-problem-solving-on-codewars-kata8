@@ -493,3 +493,26 @@ doubleChar("String");      // "SSttrriinngg"
 doubleChar("Hello World"); // "HHeelllloo  WWoorrlldd"
 doubleChar("1234!_ ");     // "11223344!!__  "
 
+/*** problem 22 ***/
+// A Chain adding function
+// We want to create a function that will add numbers together when called in succession.
+function add(num) {
+  const addNumbers = (nextNum) => {  // Initialize the closure with the starting number
+    
+    if (nextNum === undefined) { // Add the next number to the accumulated sum
+        return num; // Return the accumulated sum if no argument is provided
+    }
+
+    return add(num + nextNum);
+  };
+
+  addNumbers.toString = () => num; // Attach a `toString` method to return the result when the function is implicitly coerced to a string
+
+  return addNumbers;
+}
+
+// Example usage:
+add(1)(2);         // 3
+add(1)(2)(3);     // 6
+add(1)(2)(3)(4); // 10
+add(1)(2)(3)(4)(5); // 15
