@@ -452,3 +452,31 @@ rgbToHex(255, 255, 255); // "FFFFFF"
 rgbToHex(255, 255, 300); // "FFFFFF"
 rgbToHex(0, 0, 0);       // "000000"
 rgbToHex(148, 0, 211);   // "9400D3"
+
+/*** problem 20 ***/
+// Convert PascalCase string into snake_case
+// Complete the function/method so that it takes a PascalCase string and returns the string in snake_case notation. Lowercase characters can be numbers. If the method gets a number as input, it should return a string.
+
+// Examples
+// "TestController"  -->  "test_controller"
+// "MoviesAndBooks"  -->  "movies_and_books"
+// "App7Test"        -->  "app7_test"
+// 1                 -->  "1"
+function toSnakeCase(pascalCaseString) {
+  
+  if (typeof pascalCaseString !== 'string') {// Check if the input is a number or not a string
+      return String(pascalCaseString);
+  }
+
+  // Convert PascalCase to snake_case
+  return pascalCaseString
+  // Insert an underscore before each uppercase letter
+  .replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase(); // Convert the entire string to lowercase
+      
+}
+
+// Example usage:
+toSnakeCase("TestController"); // "test_controller"
+toSnakeCase("MoviesAndBooks"); // "movies_and_books"
+toSnakeCase("App7Test");       // "app7_test"
+toSnakeCase(1);                // "1"
