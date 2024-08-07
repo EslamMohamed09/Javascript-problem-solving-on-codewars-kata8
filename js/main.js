@@ -435,3 +435,20 @@ function scramble(str1, str2) {
 scramble('rkqodlw', 'world'); // true
 scramble('cedewaraaossoqqyt', 'codewars'); // true
 scramble('katas', 'steak'); // fal
+
+/*** problem 19 ***/
+// RGB To Hex Conversion
+function rgbToHex(r, g, b) {
+  function toHex(value) { // Helper function to clamp and convert a number to a two-digit hex string
+    value = Math.max(0, Math.min(255, value)); // Clamp value between 0 and 255
+    return value.toString(16).toUpperCase().padStart(2, '0'); // Convert to hexadecimal and pad with zero if needed
+  }
+
+  return toHex(r) + toHex(g) + toHex(b);// Convert each RGB component to a hex string and concatenate
+}
+
+// Example usage:
+rgbToHex(255, 255, 255); // "FFFFFF"
+rgbToHex(255, 255, 300); // "FFFFFF"
+rgbToHex(0, 0, 0);       // "000000"
+rgbToHex(148, 0, 211);   // "9400D3"
