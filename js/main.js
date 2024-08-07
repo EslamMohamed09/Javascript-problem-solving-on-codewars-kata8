@@ -480,3 +480,16 @@ toSnakeCase("TestController"); // "test_controller"
 toSnakeCase("MoviesAndBooks"); // "movies_and_books"
 toSnakeCase("App7Test");       // "app7_test"
 toSnakeCase(1);                // "1"
+
+/*** problem 21 ***/
+// Double Char
+function doubleChar(str) {
+  // Split the string into an array of characters, map over each character to repeat it twice, and join back into a string
+  return str.split('').map(char => char + char).join('');
+}
+
+// Example usage:
+doubleChar("String");      // "SSttrriinngg"
+doubleChar("Hello World"); // "HHeelllloo  WWoorrlldd"
+doubleChar("1234!_ ");     // "11223344!!__  "
+
