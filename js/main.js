@@ -398,3 +398,40 @@ isAlphanumeric("123456");    // true
 isAlphanumeric("abc 123");  // false (contains space)
 isAlphanumeric("abc_123");  // false (contains underscore)
 isAlphanumeric("");         // false (empty string)
+
+/* problem 18 */
+// Description:
+// Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+
+// Notes:
+
+// Only lower case letters will be used (a-z). No punctuation or digits will be included.
+// Performance needs to be considered.
+function scramble(str1, str2) {
+  // Function to count character frequencies
+  function countChars(str) {
+      const count = {};
+      for (const char of str) {
+          count[char] = (count[char] || 0) + 1;
+      }
+      return count;
+  }
+  
+  // Get the character counts for both strings
+  const str1Count = countChars(str1);
+  const str2Count = countChars(str2);
+  
+  // Check if str1 has enough of each character required by str2
+  for (const char in str2Count) {
+      if (!str1Count[char] || str1Count[char] < str2Count[char]) {
+          return false;
+      }
+  }
+  
+  return true;
+}
+
+// Example usage:
+scramble('rkqodlw', 'world'); // true
+scramble('cedewaraaossoqqyt', 'codewars'); // true
+scramble('katas', 'steak'); // fal
