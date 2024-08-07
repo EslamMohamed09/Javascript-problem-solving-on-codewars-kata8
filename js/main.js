@@ -296,3 +296,49 @@ function expressionsMatter(a, b, c) {
 expressionsMatter(1, 2, 3);  // Output: 9
 
 /* problem 15 */
+// Description:
+// We need to sum big numbers and we require your help.
+
+// Write a function that returns the sum of two numbers. The input numbers are strings and the function must return a string.
+
+// Example
+// add("123", "321"); -> "444"
+// add("11", "99");   -> "110"
+function add(a, b) {
+  // Make sure a and b are strings
+  a = a.toString();
+  b = b.toString();
+
+  // Determine the length of the numbers
+  let maxLength = Math.max(a.length, b.length);
+
+  // Pad the shorter string with zeros at the beginning
+  a = a.padStart(maxLength, '0');
+  b = b.padStart(maxLength, '0');
+
+  let carry = 0;
+  let result = '';
+
+  // Loop through the numbers from the end to the beginning
+  for (let i = maxLength - 1; i >= 0; i--) {
+      let sum = parseInt(a[i]) + parseInt(b[i]) + carry;
+      if (sum >= 10) {
+          carry = 1;
+          sum -= 10;
+      } else {
+          carry = 0;
+      }
+      result = sum + result;
+  }
+
+  // If there's a carry left, add it to the beginning of the result
+  if (carry) {
+      result = carry + result;
+  }
+
+  return result;
+}
+
+// Example usage:
+console.log(add("123", "321")); // "444"
+console.log(add("11", "99"));   // "110"
